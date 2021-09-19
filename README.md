@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
 
-See [demo](https://daveteply.github.io/webgl-v0/webgl-v0/)!
+See [demo](https://daveteply.github.io/webgl-v0/webgl-v0)!
 
 ## Development server
 
