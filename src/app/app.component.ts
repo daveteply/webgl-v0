@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   constructor(
     private sceneManager: SceneManagerService,
     private objectManager: ObjectManagerService,
-    private textureManager: MaterialManagerService,
+    private materialManager: MaterialManagerService,
     @Inject(DOCUMENT) private readonly documentRef: Document,
     private ngZone: NgZone
   ) {
@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
 
     this.objectManager.InitShapes(this.sceneManager.scene);
 
-    this.textureManager.OnProgress.subscribe((progress) => {
+    this.materialManager.OnProgress.subscribe((progress) => {
       console.log(progress);
     });
 
