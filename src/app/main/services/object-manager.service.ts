@@ -13,11 +13,11 @@ export class ObjectManagerService {
   private _time = 0;
   private _maxShapes = 20;
 
-  constructor(private textureManager: MaterialManagerService) {}
+  constructor(private materialManager: MaterialManagerService) {}
 
   public InitShapes(scene: Scene): void {
-    this.textureManager.InitTextures();
-    this.textureManager.OnLoad.subscribe(() => {
+    this.materialManager.InitTextures();
+    this.materialManager.OnLoad.subscribe(() => {
       this.addShape(scene);
     });
   }
@@ -48,14 +48,14 @@ export class ObjectManagerService {
               THREE.MathUtils.randFloat(1, 1.5),
               24
             ),
-            this.textureManager.RandomTexture()
+            this.materialManager.RandomTexture()
           );
           break;
 
         case 1:
           shape = new ObjMesh(
             new THREE.SphereGeometry(THREE.MathUtils.randFloat(0.5, 1)),
-            this.textureManager.RandomSphereTexture()
+            this.materialManager.RandomSphereTexture()
           );
           break;
 
@@ -67,7 +67,7 @@ export class ObjectManagerService {
               24,
               24
             ),
-            this.textureManager.RandomDoughnut()
+            this.materialManager.RandomDoughnut()
           );
           break;
 
@@ -78,7 +78,7 @@ export class ObjectManagerService {
               THREE.MathUtils.randFloat(0.75, 1),
               THREE.MathUtils.randFloat(0.75, 1)
             ),
-            this.textureManager.RandomTexture()
+            this.materialManager.RandomTexture()
           );
       }
       this._meshes.push(shape);
