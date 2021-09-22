@@ -45,8 +45,8 @@ export class AppComponent implements OnInit {
       console.log(progress);
     });
 
-    this.sceneManager.scene.position.z = -10;
-    this.sceneManager.scene.position.x = -5;
+    this.sceneManager.camera.position.z = 10;
+    this.sceneManager.camera.position.x = 10;
 
     this.animate();
   }

@@ -56,7 +56,7 @@ export class SceneManagerService {
 
       // orbit controls
       this._controls = new OrbitControls(this._camera, this._canvas);
-      this._controls.target.set(0, 0, -5);
+      this._controls.target.set(0, 0, 0);
       this._controls.update();
     }
   }
