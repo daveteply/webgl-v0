@@ -11,6 +11,9 @@ import { MaterialManagerService } from './main/services/material-manager.service
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  textureLoadingProgress = 0;
+  textureLoading = '';
+
   constructor(
     private sceneManager: SceneManagerService,
     private objectManager: ObjectManagerService,
@@ -42,7 +45,8 @@ export class AppComponent implements OnInit {
     this.objectManager.InitShapes(this.sceneManager.scene);
 
     this.materialManager.OnProgress.subscribe((progress) => {
-      console.log(progress);
+      this.textureLoading = progress.url;
+      this.textureLoadingProgress = (progress.loaded / progress.total) * 100;
     });
 
     this.sceneManager.camera.position.z = 10;

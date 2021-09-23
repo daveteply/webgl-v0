@@ -1,0 +1,14 @@
+.texture-loading-progress {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 1s;
+  &__hide {
+    opacity: 0;
+  }
+}

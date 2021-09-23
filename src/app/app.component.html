@@ -1,2 +1,12 @@
 <!-- <router-outlet></router-outlet> -->
 <app-main-canvas></app-main-canvas>
+
+<div
+  class="texture-loading-progress"
+  [class.texture-loading-progress__hide]="textureLoadingProgress >= 100"
+>
+  <mat-spinner
+    mode="determinate"
+    [value]="textureLoadingProgress"
+  ></mat-spinner>
+</div>
