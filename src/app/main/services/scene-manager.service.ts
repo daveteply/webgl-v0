@@ -24,10 +24,6 @@ export class SceneManagerService {
     return this._scene;
   }
 
-  public get camera(): Camera {
-    return this._camera;
-  }
-
   public updateSize(width: number, height: number): void {
     this._width = width;
     this._height = height;
@@ -58,6 +54,12 @@ export class SceneManagerService {
       this._controls = new OrbitControls(this._camera, this._canvas);
       this._controls.target.set(0, 0, 0);
       this._controls.update();
+    }
+  }
+
+  public SetCameraPos(position: THREE.Vector3): void {
+    if (this._camera) {
+      this._camera.position.set(position.x, position.y, position.z);
     }
   }
 

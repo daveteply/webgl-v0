@@ -4,6 +4,7 @@ import { ObjectManagerService } from './main/services/object-manager.service';
 
 import { SceneManagerService } from './main/services/scene-manager.service';
 import { MaterialManagerService } from './main/services/material-manager.service';
+import * as THREE from 'three';
 
 @Component({
   selector: 'app-root',
@@ -42,15 +43,15 @@ export class AppComponent implements OnInit {
 
     this.sceneManager.updateSize(winWidth, winHeight);
 
-    this.sceneManager.camera.position.z = 10;
-    this.sceneManager.camera.position.x = 10;
+    this.sceneManager.SetCameraPos(new THREE.Vector3(10, 0, 10));
+
+    this.materialManager.InitTextures();
 
     this.materialManager.OnProgress.subscribe((progress) => {
       this.textureLoading = progress.url;
       this.textureLoadingProgress = (progress.loaded / progress.total) * 100;
     });
 
-    this.materialManager.InitTextures();
     this.materialManager.OnLoad.subscribe(() => {
       this.animate();
     });
