@@ -42,17 +42,18 @@ export class AppComponent implements OnInit {
 
     this.sceneManager.updateSize(winWidth, winHeight);
 
-    this.objectManager.InitShapes(this.sceneManager.scene);
+    this.sceneManager.camera.position.z = 10;
+    this.sceneManager.camera.position.x = 10;
 
     this.materialManager.OnProgress.subscribe((progress) => {
       this.textureLoading = progress.url;
       this.textureLoadingProgress = (progress.loaded / progress.total) * 100;
     });
 
-    this.sceneManager.camera.position.z = 10;
-    this.sceneManager.camera.position.x = 10;
-
-    this.animate();
+    this.materialManager.InitTextures();
+    this.materialManager.OnLoad.subscribe(() => {
+      this.animate();
+    });
   }
 
   private animate(): void {

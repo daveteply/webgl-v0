@@ -15,13 +15,6 @@ export class ObjectManagerService {
 
   constructor(private materialManager: MaterialManagerService) {}
 
-  public InitShapes(scene: Scene): void {
-    this.materialManager.InitTextures();
-    this.materialManager.OnLoad.subscribe(() => {
-      this.addShape(scene);
-    });
-  }
-
   public UpdateShapes(scene: Scene): void {
     this._time += 1;
 
@@ -30,12 +23,12 @@ export class ObjectManagerService {
     }
 
     if ((this._time % this._maxShapes) / 2 === 0) {
-      this.addShape(scene);
+      this.AddShape(scene);
       this.cleanUpShapes(scene);
     }
   }
 
-  private addShape(scene: Scene): void {
+  public AddShape(scene: Scene): void {
     if (this._meshes.length < this._maxShapes) {
       let shape!: ObjMesh;
 
